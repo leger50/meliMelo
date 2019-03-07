@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">meliMelo</string>
     <string name="app_name_upper">Méli-Mélo</string>
+    <string name="vibreur">Vibreur</string>
+    <string name="notification">Notifications</string>
+    <string name="retour">Retour</string>
+    <string name="parametres">Paramètres</string>
 </resources>

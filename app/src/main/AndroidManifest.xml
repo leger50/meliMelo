@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".activities.JeuNormalActivity"/>
+        <activity android:name=".activities.Parametre_Activity"/>
         <activity android:name=".activities.ParametresPartieActivity"></activity>
     </application>
 
