@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="15dp"
-    tools:context=".activities.AccueilActivity">
+    tools:context=".activities.ParametresPartieActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -57,37 +57,15 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3.5"
+        android:background="@drawable/bg_parametre_partie_rnd"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn_play"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@drawable/btn_play_rnd"
-            android:padding="5dp"
-            android:text="@string/btn_play" />
-
-        <Button
-            android:id="@+id/btn_parameter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="20dp"
-            android:padding="5dp"
-            android:background="@drawable/btn_parameter_rnd"
-            android:text="@string/btn_parameter"/>
-
-        <Button
-            android:id="@+id/btn_record"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="20dp"
-            android:padding="5dp"
-            android:background="@drawable/btn_record_rnd"
-            android:text="@string/btn_record" />
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Jouer" />
 
     </LinearLayout>
 
