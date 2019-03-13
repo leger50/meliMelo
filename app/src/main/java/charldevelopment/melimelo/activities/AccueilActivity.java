@@ -17,11 +17,25 @@ public class AccueilActivity extends AppCompatActivity implements View.OnClickLi
 
         Button jouer = (Button) findViewById(R.id.btn_play);
         jouer.setOnClickListener(this);
+
+        Button parametres = (Button) findViewById(R.id.btn_parameter);
+        parametres.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(AccueilActivity.this, ParametresPartieActivity.class);
-        startActivity(intent);
+        switch(v.getId()) {
+            case R.id.btn_play :
+                Intent intent = new Intent(AccueilActivity.this, ParametresPartieActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_parameter :
+                Intent intent2 = new Intent(AccueilActivity.this, ParametreActivity.class);
+                startActivity(intent2);
+                break;
+            default:
+                break;
+        }
+
     }
 }

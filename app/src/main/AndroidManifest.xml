@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.JeuNormalActivity"/>
-        <activity android:name=".activities.Parametre_Activity"/>
+        <activity android:name=".activities.ParametreActivity"/>
         <activity android:name=".activities.ParametresPartieActivity"></activity>
     </application>
 
