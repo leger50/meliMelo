@@ -1,8 +1,16 @@
 <resources>
     <string name="app_name">meliMelo</string>
     <string name="app_name_upper">Méli-Mélo</string>
-    <string name="vibreur">Vibreur</string>
-    <string name="notification">Notifications</string>
-    <string name="retour">Retour</string>
-    <string name="parametres">Paramètres</string>
+
+    <string name="activityAccueil_nom">Méli-Mélo</string>
+    <string name="activityAccueil_menuJouer">Jouer</string>
+    <string name="activityAccueil_menuParametres">Paramètres</string>
+    <string name="activityAccueil_menuRecords">Record</string>
+
+    <string name="activityJeuNormal_btnValiderMot">Valider</string>
+
+    <string name="activityParametre_nomParametre">Paramètres</string>
+    <string name="activityParametre_vibreur">Vibreur</string>
+    <string name="activityParametre_notification">Notifications</string>
+    <string name="activityParametre_retour">Retour</string>
 </resources>

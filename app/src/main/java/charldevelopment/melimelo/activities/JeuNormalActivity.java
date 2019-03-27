@@ -23,13 +23,13 @@ public class JeuNormalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jeu_normal);
 
-        Button jouer = (Button) findViewById(R.id.btn_play);
+        /*Button jouer = (Button) findViewById(R.id.btn_play);
         jouer.setOnClickListener(this);
 
         MotViewModel motView = new MotViewModel(this.getApplication());
         this.listeMots = motView.obtenirListeMots().getValue();
         System.out.println(this.listeMots.toString());
-        System.out.println("Size : " + this.listeMots.size());
+        System.out.println("Size : " + this.listeMots.size());*/
 
     }
 }
