@@ -2,6 +2,7 @@ package charldevelopment.melimelo.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -22,8 +23,11 @@ public class JeuNormalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jeu_normal);
 
-        MotViewModel test = new MotViewModel(this.getApplication());
-        this.listeMots = test.obtenirListeMots().getValue();
+        Button jouer = (Button) findViewById(R.id.btn_play);
+        jouer.setOnClickListener(this);
+
+        MotViewModel motView = new MotViewModel(this.getApplication());
+        this.listeMots = motView.obtenirListeMots().getValue();
         System.out.println(this.listeMots.toString());
         System.out.println("Size : " + this.listeMots.size());
 
