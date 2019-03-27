@@ -11,7 +11,7 @@
         android:id="@+id/text_parametres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/parametres"
+        android:text="@string/activityParametre_nomParametre"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="25dp"
@@ -29,7 +29,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="2"
-            android:text="@string/vibreur"
+            android:text="@string/activityParametre_vibreur"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="45dp"/>
 
@@ -55,7 +55,7 @@
             android:id="@+id/text_notification"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/notification"
+            android:text="@string/activityParametre_notification"
             android:layout_gravity="center"
             android:layout_weight="2"
             android:layout_marginLeft="50dp"
@@ -111,5 +111,5 @@
         android:layout_weight="0"
         android:layout_marginBottom="35dp"
         android:layout_marginLeft="40dp"
-        android:text="@string/retour" />
+        android:text="@string/activityParametre_retour" />
 </LinearLayout>

@@ -27,7 +27,8 @@ public class ParametresPartieActivity extends AppCompatActivity implements View.
                 Intent intent = new Intent(ParametresPartieActivity.this,JeuNormalActivity.class);
                 startActivity(intent);
                 break;
-                default:;
+
+            default:
         }
 
     }
