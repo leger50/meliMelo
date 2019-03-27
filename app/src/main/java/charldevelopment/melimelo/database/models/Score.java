@@ -1,4 +1,4 @@
-package charldevelopment.melimelo.models;
+package charldevelopment.melimelo.database.models;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;

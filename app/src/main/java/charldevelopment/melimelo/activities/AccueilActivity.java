@@ -6,7 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 import charldevelopment.melimelo.R;
+import charldevelopment.melimelo.database.dao.MotDao;
+import charldevelopment.melimelo.database.models.Mot;
+import charldevelopment.melimelo.database.repositories.MotDataRepository;
 
 public class AccueilActivity extends AppCompatActivity implements View.OnClickListener {
 
