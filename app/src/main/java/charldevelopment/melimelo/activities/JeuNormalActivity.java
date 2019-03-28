@@ -1,5 +1,8 @@
 package charldevelopment.melimelo.activities;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -81,6 +84,12 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
                         this.listeMotInsere.remove(motInsere.getKey());
                         this.compteur.setText("Mots à trouver : "+listeMotInsere.size());
                         this.resultat.setText("Bravo !");
+                        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                        SharedPreferences prefs = getSharedPreferences("parametres", MODE_PRIVATE);
+                        boolean vibreur = prefs.getBoolean("vibreur",true);//"No name defined" is the default value
+                        if(vibreur){
+                            vibrator.vibrate(100);
+                        }
                     }
                 }
                 if(!isFound){
