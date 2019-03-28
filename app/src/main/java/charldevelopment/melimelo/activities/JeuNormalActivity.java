@@ -106,7 +106,6 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
                         if(vibreur){
                             vibrator.vibrate(100);
                         }
-                        reponse.setText("");
                     }
                 }
                 if(!isFound){
@@ -118,6 +117,7 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
                         vibrator.vibrate(400);
                     }
                 }
+                reponse.setText(" ");
                break;
         }
     }
