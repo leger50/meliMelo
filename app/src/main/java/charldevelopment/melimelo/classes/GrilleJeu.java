@@ -79,9 +79,7 @@ public class GrilleJeu {
 
         int essais = 0;
         for(int k = colonne; k < mot.length()+colonne; k++){
-            //System.out.println(this.grille[ligne][k]);
             if(!(this.grille[ligne][k].equals(this.MARQUE_VIDE))){
-                //System.out.println("OK!");
                 ligne = random.nextInt(this.TAILLE);
                 colonne = random.nextInt(colonneMax);
                 k=colonne;
@@ -90,6 +88,10 @@ public class GrilleJeu {
                     return(false);
                 }
             }
+        }
+
+        if(!(this.grille[ligne][colonne].equals(this.MARQUE_VIDE))){ //Problème superpostion première lettre
+            return false;
         }
 
         int index = 1;
@@ -124,6 +126,10 @@ public class GrilleJeu {
                     return (false);
                 }
             }
+        }
+
+        if(!(this.grille[ligne][colonne].equals(this.MARQUE_VIDE))){ //Problème superposition première lettre
+            return false;
         }
 
         int index = 1;
