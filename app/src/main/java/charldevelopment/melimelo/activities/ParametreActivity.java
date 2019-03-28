@@ -1,7 +1,6 @@
 package charldevelopment.melimelo.activities;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
@@ -46,6 +45,7 @@ public class ParametreActivity extends AppCompatActivity implements View.OnClick
             case R.id.button_retour :
                 finish();
                 break;
+
             case R.id.switch_vibreur :
                 boolean vibreur = prefs.getBoolean("vibreur",true);//"No name defined" is the default value
                 editor.putBoolean("vibreur", !vibreur);
@@ -55,6 +55,7 @@ public class ParametreActivity extends AppCompatActivity implements View.OnClick
                     vibrator.vibrate(100);
                 }
                 break;
+
             case R.id.switch_notifications :
                 boolean notifications = prefs.getBoolean("notifications",true);//"No name defined" is the default value
                 editor.putBoolean("notifications", !notifications);

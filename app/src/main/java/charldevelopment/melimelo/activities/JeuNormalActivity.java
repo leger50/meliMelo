@@ -11,6 +11,7 @@ import java.util.List;
 import charldevelopment.melimelo.R;
 import charldevelopment.melimelo.classes.GrilleJeu;
 import charldevelopment.melimelo.database.models.Mot;
+import charldevelopment.melimelo.views.MotViewModel;
 
 public class JeuNormalActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -22,8 +23,8 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jeu_normal);
 
-        Button jouer = (Button) findViewById(R.id.btn_play);
-        jouer.setOnClickListener(this);
+        Button btnValiderMot = (Button) findViewById(R.id.activityJeuNormal_btnValiderMot);
+        btnValiderMot.setOnClickListener(this);
 
         /*MotViewModel motView = new MotViewModel(this.getApplication());
         this.listeMots = motView.obtenirListeMots().getValue();
@@ -40,6 +41,19 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
 
             case R.id.activityJeuNormal_btnValiderMot:
                 Toast.makeText(getApplicationContext(), "bouton", Toast.LENGTH_SHORT).show();
+
+                //A supprimer
+
+                MotViewModel motView = new MotViewModel(this.getApplication());
+                this.listeMots = motView.obtenirListeMots().getValue();
+
+                if(this.listeMots == null){
+                    System.out.println("Liste Nulle");
+                }else{
+                    System.out.println(this.listeMots.toString());
+                    System.out.println("size : " + this.listeMots);
+                }
+
                 break;
 
             default:
