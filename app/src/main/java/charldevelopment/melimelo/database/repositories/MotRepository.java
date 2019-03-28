@@ -8,26 +8,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 import charldevelopment.melimelo.database.MeliMeloDatabase;
+import charldevelopment.melimelo.database.MotsParDefaut;
 import charldevelopment.melimelo.database.dao.MotDao;
 import charldevelopment.melimelo.database.models.Mot;
 
-public class MotDataRepository {
+public class MotRepository {
 
     private final MotDao motDao;
-    private LiveData<List<Mot>> listeMots;
 
-    public MotDataRepository(Application application) {
+    public MotRepository(Application application) {
         MeliMeloDatabase db = MeliMeloDatabase.getDatabase(application);
         this.motDao = db.motDao();
-        this.listeMots = motDao.obtenirListeMots();
     }
 
-    public LiveData<List<Mot>> obtenirListeMots() {
-        return this.listeMots;
+    public List<Mot> obtenirListeMots() {
+        return this.motDao.obtenirListeMots();
     }
 
     public void insert(Mot mot) {
         new insertAsyncTask(this.motDao).execute(mot);
+    }
+
+    public void initDatabase(){
+        String listeMots[] = MotsParDefaut.listeMotsDefaut;
+
+        for(int i=0; i<listeMots.length; i++){
+            this.insert(new Mot(i,listeMots[i]));
+        }
     }
 
     /*
@@ -48,11 +55,4 @@ public class MotDataRepository {
             return null;
         }
     }
-
-    /*public MotDataRepository(MotDao motDao) {
-        this.motDao = motDao;
-    }
-
-    //Méthodes de MotDao
-    public ArrayList<Mot> obtenirListeMots() { return this.motDao.obtenirListeMots(); }*/
 }

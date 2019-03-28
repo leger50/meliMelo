@@ -5,6 +5,8 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
+import java.util.Arrays;
+
 import charldevelopment.melimelo.database.dao.MotDao;
 import charldevelopment.melimelo.database.models.Mot;
 

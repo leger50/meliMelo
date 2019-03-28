@@ -16,7 +16,7 @@ import charldevelopment.melimelo.database.models.Mot;
 public interface MotDao {
 
     @Query("SELECT * FROM mots")
-    public LiveData<List<Mot>> obtenirListeMots();
+    public List<Mot> obtenirListeMots();
 
     @Insert
     public void insererUnMot(Mot mot);

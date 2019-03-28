@@ -11,7 +11,7 @@ import java.util.List;
 import charldevelopment.melimelo.R;
 import charldevelopment.melimelo.classes.GrilleJeu;
 import charldevelopment.melimelo.database.models.Mot;
-import charldevelopment.melimelo.views.MotViewModel;
+import charldevelopment.melimelo.database.repositories.MotRepository;
 
 public class JeuNormalActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -44,14 +44,14 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
 
                 //A supprimer
 
-                MotViewModel motView = new MotViewModel(this.getApplication());
-                this.listeMots = motView.obtenirListeMots().getValue();
+                MotRepository motView = new MotRepository(this.getApplication());
+                this.listeMots = motView.obtenirListeMots();
 
                 if(this.listeMots == null){
                     System.out.println("Liste Nulle");
                 }else{
-                    System.out.println(this.listeMots.toString());
-                    System.out.println("size : " + this.listeMots);
+                    //System.out.println(this.listeMots.toString());
+                    System.out.println("size : " + this.listeMots.size());
                 }
 
                 break;
