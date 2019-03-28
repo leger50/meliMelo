@@ -94,6 +94,12 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
                 }
                 if(!isFound){
                     this.resultat.setText("Dommage ...");
+                    Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    SharedPreferences prefs = getSharedPreferences("parametres", MODE_PRIVATE);
+                    boolean vibreur = prefs.getBoolean("vibreur",true);//"No name defined" is the default value
+                    if(vibreur){
+                        vibrator.vibrate(400);
+                    }
                 }
                break;
         }
