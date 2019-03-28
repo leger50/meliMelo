@@ -11,9 +11,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -38,6 +40,8 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
     private TextView compteur;
     private HashMap listeMotInsere;
     private TextView resultat;
+    private GridView motTrouve;
+    private ArrayList<String> listDeMotTrouve = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,24 +70,39 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
 
         this.resultat = (TextView) findViewById(R.id.view_resultat);
 
+        this.motTrouve = (GridView) findViewById(R.id.word_find);
+
     }
 
     @Override
     public void onClick(View v){
+
         switch (v.getId()){
             case R.id.btn_play:
                 EditText reponse = (EditText) findViewById(R.id.saisieMot);
                 String mot = reponse.getText().toString();
 
-                Iterator<Map.Entry<String, charldevelopment.melimelo.classes.Mot>> iterator = this.listeMotInsere.entrySet().iterator();
+                Iterator<Map.Entry<String, charldevelopment.melimelo.classes.Mot>> iterator2 = this.listeMotInsere.entrySet().iterator();
                 boolean isFound = false;
-                while (iterator.hasNext() && !isFound) {
-                    Map.Entry<String, charldevelopment.melimelo.classes.Mot> motInsere = (Map.Entry<String, charldevelopment.melimelo.classes.Mot>) iterator.next();
+                while (iterator2.hasNext() && !isFound) {
+                    Map.Entry<String, charldevelopment.melimelo.classes.Mot> motInsere = (Map.Entry<String, charldevelopment.melimelo.classes.Mot>) iterator2.next();
                     if(motInsere.getValue().getMot().equals(mot)){
                         isFound = true;
+
+                        //jeu
                         this.listeMotInsere.remove(motInsere.getKey());
                         this.compteur.setText("Mots à trouver : "+listeMotInsere.size());
                         this.resultat.setText("Bravo !");
+
+                        listDeMotTrouve.add(motInsere.getValue().getMot());
+
+                        //maj Grid
+                        final List<String> listeMotTrouve = new ArrayList<String>(listDeMotTrouve);
+                        final ArrayAdapter<String> gridViewArrayAdapter = new ArrayAdapter<String>
+                                (this,android.R.layout.simple_list_item_1, listeMotTrouve);
+                        motTrouve.setAdapter(gridViewArrayAdapter);
+
+                        //vibreur
                         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                         SharedPreferences prefs = getSharedPreferences("parametres", MODE_PRIVATE);
                         boolean vibreur = prefs.getBoolean("vibreur",true);//"No name defined" is the default value
