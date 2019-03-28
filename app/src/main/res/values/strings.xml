@@ -11,6 +11,7 @@
 
     <string name="activityParametre_nomParametre">Paramètres</string>
     <string name="activityParametre_vibreur">Vibreur</string>
+    <string name="activityParametre_sound">sound</string>
     <string name="activityParametre_notification">Notifications</string>
     <string name="activityParametre_retour">Retour</string>
 </resources>
