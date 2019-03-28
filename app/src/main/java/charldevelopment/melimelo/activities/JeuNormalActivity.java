@@ -6,26 +6,23 @@ import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.ListView;
+
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-import java.lang.reflect.Array;
+
 import java.util.Map;
-import java.util.Random;
+
 
 import charldevelopment.melimelo.R;
 import charldevelopment.melimelo.classes.GrilleJeu;
@@ -86,7 +83,7 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
                 boolean isFound = false;
                 while (iterator2.hasNext() && !isFound) {
                     Map.Entry<String, charldevelopment.melimelo.classes.Mot> motInsere = (Map.Entry<String, charldevelopment.melimelo.classes.Mot>) iterator2.next();
-                    if(motInsere.getValue().getMot().equals(mot)){
+                    if(motInsere.getValue().getMot().equals(mot.toUpperCase())){
                         isFound = true;
 
                         //jeu
