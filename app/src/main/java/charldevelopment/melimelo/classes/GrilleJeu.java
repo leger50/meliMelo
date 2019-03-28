@@ -35,7 +35,7 @@ public class GrilleJeu {
 
         this.remplirVide();
 
-        this.toString();
+        //this.toString();
     }
 
     public String toString(){
