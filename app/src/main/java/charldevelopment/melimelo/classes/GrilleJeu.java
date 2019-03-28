@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class GrilleJeu {
 
-    private final int TAILLE = 10;
+    private final int TAILLE;
     private String[][] grille;
     private static final int NBMETHODE = 2;
     private static final String[] ALPHABET = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
@@ -13,7 +13,8 @@ public class GrilleJeu {
     private HashMap<Integer, Mot> listeMot;
     private final int NBMOT = 10;
 
-    public GrilleJeu() {
+    public GrilleJeu(int TAILLE) {
+        this.TAILLE = TAILLE;
         this.grille = new String[this.TAILLE][this.TAILLE];
         this.listeMot= new HashMap<>();
         for (int i = 0; i < this.TAILLE;i++) {
@@ -164,7 +165,7 @@ public class GrilleJeu {
         return true;
     }
 
-    private void remplirVide(){
+    public void remplirVide(){
         Random rand = new Random();
 
         for (int i = 0; i < this.TAILLE; i++){

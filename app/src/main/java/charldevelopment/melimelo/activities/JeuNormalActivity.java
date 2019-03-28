@@ -55,7 +55,7 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
         System.out.println(this.listeMots.toString());
         System.out.println("Size : " + this.listeMots.size());*/
 
-        this.grille = new GrilleJeu();
+        this.grille = new GrilleJeu(10);
 
         TextView textView = (TextView) findViewById(R.id.view_jeu);
 
