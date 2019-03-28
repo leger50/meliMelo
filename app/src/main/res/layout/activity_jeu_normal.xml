@@ -46,8 +46,18 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:minHeight="450dp"
-        android:background="@drawable/bg_parametre_partie_rnd"
+        android:background="@drawable/bg_grid_partie_rnd"
         android:orientation="vertical">
+
+        <GridView
+            android:id="@+id/gridviewWord"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:numColumns="10"
+            android:stretchMode="columnWidth" >
+
+        </GridView>
 
     </LinearLayout>
 
