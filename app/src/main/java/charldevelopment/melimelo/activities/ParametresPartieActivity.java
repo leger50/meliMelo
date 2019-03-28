@@ -26,6 +26,7 @@ public class ParametresPartieActivity extends AppCompatActivity implements View.
             case R.id.btn_play :
                 Intent intent = new Intent(ParametresPartieActivity.this,JeuNormalActivity.class);
                 startActivity(intent);
+                finish();
                 break;
 
             default:
