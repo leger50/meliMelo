@@ -85,7 +85,8 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
                 boolean isFound = false;
                 while (iterator2.hasNext() && !isFound) {
                     Map.Entry<String, charldevelopment.melimelo.classes.Mot> motInsere = (Map.Entry<String, charldevelopment.melimelo.classes.Mot>) iterator2.next();
-                    if(motInsere.getValue().getMot().equals(mot.toUpperCase())){
+
+                    if(motInsere.getValue().getMot().equals(mot)){
                         isFound = true;
 
                         //jeu
@@ -119,7 +120,7 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
                         vibrator.vibrate(400);
                     }
                 }
-                reponse.setText(" ");
+                reponse.setText("");
                 InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
                 imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
                break;
