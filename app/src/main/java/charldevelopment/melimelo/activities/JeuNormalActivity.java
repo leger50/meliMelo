@@ -106,6 +106,7 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
                         if(vibreur){
                             vibrator.vibrate(100);
                         }
+                        reponse.setText("");
                     }
                 }
                 if(!isFound){
