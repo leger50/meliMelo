@@ -13,6 +13,7 @@
         android:layout_height="90dp"
         android:orientation="horizontal">
 
+
         <EditText
             android:id="@+id/saisieMot"
             android:layout_width="wrap_content"
@@ -35,6 +36,13 @@
             android:paddingRight="10dp"
             android:layout_marginLeft="10dp"
             android:text="@string/activityJeuNormal_btnValiderMot" />
+        <TextView
+            android:id="@+id/view_resultat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Trouvez les mots !">
+        </TextView>
 
     </LinearLayout>
 
@@ -49,17 +57,21 @@
         android:background="@drawable/bg_grid_partie_rnd"
         android:orientation="vertical">
 
-        <GridView
-            android:id="@+id/gridviewWord"
+        <TextView
+            android:id="@+id/view_jeu"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:gravity="center"
-            android:numColumns="10"
-            android:stretchMode="columnWidth" >
-
-        </GridView>
+            android:gravity="center">
+        </TextView>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/view_compteur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+    </TextView>
 
     <GridView
         android:id="@+id/word_find"

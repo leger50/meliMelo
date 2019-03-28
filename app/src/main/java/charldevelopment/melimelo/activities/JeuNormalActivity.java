@@ -13,6 +13,7 @@ import android.widget.Toast;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 import java.lang.reflect.Array;
@@ -47,20 +48,17 @@ public class JeuNormalActivity extends AppCompatActivity  {
 
         this.grille = new GrilleJeu();
 
-//        gridView = (GridView) findViewById(R.id.gridviewWord);
-//
-//        for (int i=0; i<10; i++) {
-//            for (int j=0; j<10; j++) {
-//                TextView dynamicTextView = new TextView(this);
-//                dynamicTextView.setText(String.valueOf(i) + String.valueOf(j));
-//
-//                gridView.addView(dynamicTextView);
-//            }
-//        }
-
-//        Ne fonctionne pas !!!!!
+        TextView textView = (TextView) findViewById(R.id.view_jeu);
 
 
+        textView.setText(this.grille.toStringActivity());
+        System.out.print(textView.getText());
+
+        HashMap listeMotInsere = this.grille.getListeMot();
+
+        TextView compteur = (TextView) findViewById(R.id.view_compteur);
+
+        compteur.setText("Mots à trouver : "+listeMotInsere.size());
 
 
     }

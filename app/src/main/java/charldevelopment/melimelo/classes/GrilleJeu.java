@@ -33,7 +33,7 @@ public class GrilleJeu {
         this.insererMot("SYLVAIN");
         this.insererMot("JEREMY");
 
-        //this.remplirVide();
+        this.remplirVide();
 
         this.toString();
     }
@@ -46,9 +46,22 @@ public class GrilleJeu {
             for (int j = 0; j < this.TAILLE; j++){
                 retour += this.grille[i][j];
             }
-            System.out.println(retour);
-            retour = "";
+        }
 
+        return retour;
+    }
+
+    public String toStringActivity(){
+
+        String retour = "";
+
+        for (int i = 0; i < this.TAILLE;i++){
+            for (int j = 0; j < this.TAILLE; j++){
+                retour+= "   ";
+                retour += this.grille[i][j];
+                retour += "   ";
+            }
+            retour += "\n";
         }
 
         return retour;
@@ -161,5 +174,9 @@ public class GrilleJeu {
                 }
             }
         }
+    }
+
+    public HashMap getListeMot(){
+        return this.listeMot;
     }
 }
