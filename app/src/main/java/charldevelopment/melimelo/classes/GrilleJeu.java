@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class GrilleJeu {
 
-    private final int TAILLE = 10;
+    private final int TAILLE;
     private String[][] grille;
     private static final int NBMETHODE = 2;
     private static final String[] ALPHABET = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
@@ -13,7 +13,8 @@ public class GrilleJeu {
     private HashMap<Integer, Mot> listeMot;
     private final int NBMOT = 10;
 
-    public GrilleJeu() {
+    public GrilleJeu(int TAILLE) {
+        this.TAILLE = TAILLE;
         this.grille = new String[this.TAILLE][this.TAILLE];
         this.listeMot= new HashMap<>();
         for (int i = 0; i < this.TAILLE;i++) {
@@ -33,9 +34,9 @@ public class GrilleJeu {
         this.insererMot("SYLVAIN");
         this.insererMot("JEREMY");
 
-        //this.remplirVide();
+        this.remplirVide();
 
-        this.toString();
+        //this.toString();
     }
 
     public String toString(){
@@ -46,9 +47,22 @@ public class GrilleJeu {
             for (int j = 0; j < this.TAILLE; j++){
                 retour += this.grille[i][j];
             }
-            System.out.println(retour);
-            retour = "";
+        }
 
+        return retour;
+    }
+
+    public String toStringActivity(){
+
+        String retour = "";
+
+        for (int i = 0; i < this.TAILLE;i++){
+            for (int j = 0; j < this.TAILLE; j++){
+                retour+= "   ";
+                retour += this.grille[i][j];
+                retour += "   ";
+            }
+            retour += "\n";
         }
 
         return retour;
@@ -151,7 +165,7 @@ public class GrilleJeu {
         return true;
     }
 
-    private void remplirVide(){
+    public void remplirVide(){
         Random rand = new Random();
 
         for (int i = 0; i < this.TAILLE; i++){
@@ -161,5 +175,9 @@ public class GrilleJeu {
                 }
             }
         }
+    }
+
+    public HashMap getListeMot(){
+        return this.listeMot;
     }
 }

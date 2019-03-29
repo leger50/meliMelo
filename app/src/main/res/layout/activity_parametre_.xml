@@ -1,115 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.ParametreActivity"
-    android:orientation="vertical" >
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    android:padding="15dp"
+    tools:context=".activities.ParametreActivity">
 
-    <TextView
-        android:id="@+id/text_parametres"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/activityParametre_nomParametre"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="25dp"
-        android:textSize="32dp"/>
-
-    <LinearLayout
+    <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:columnCount="3"
+        android:rowCount="4">
+
+        <ImageView
+            android:layout_row="0"
+            android:layout_column="0"
+            android:src="@drawable/vibrate_settings" />
 
         <TextView
             android:id="@+id/text_vibreur"
-            android:layout_width="438dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="2"
-            android:text="@string/activityParametre_vibreur"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="45dp"/>
+            android:layout_row="0"
+            android:layout_column="1"
+            android:text="@string/activityParametre_vibreur" />
 
         <Switch
             android:id="@+id/switch_vibreur"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="end"
-            android:layout_weight="2"
-            android:layout_marginRight="50dp"
-            android:theme="@color/colorAccent"
-            android:checked="true"/>
+            android:layout_row="0"
+            android:layout_column="2"
+            android:checked="true"
+            android:theme="@color/pink" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="2">
+        <ImageView
+            android:layout_row="0"
+            android:layout_column="0"
+            android:src="@drawable/notification_settings" />
 
         <TextView
             android:id="@+id/text_notification"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/activityParametre_notification"
-            android:layout_gravity="center"
-            android:layout_weight="2"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="45dp"/>
+            android:layout_row="1"
+            android:layout_column="1"
+            android:text="@string/activityParametre_notification" />
 
         <Switch
             android:id="@+id/switch_notifications"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="end"
-            android:layout_marginRight="50dp"
-            android:layout_weight="2"
+            android:layout_row="1"
+            android:layout_column="1"
             android:checked="false"
             tools:checked="false" />
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/button_retour"
+            android:layout_row="4"
+            android:layout_column="2"
+            android:text="@string/activityParametre_retour" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="2">
+    </GridLayout>
 
-        <ImageButton
-            android:id="@+id/button_royaumeUni"
-            android:layout_width="149dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_weight="1"
-            android:text="Button"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:src="@mipmap/unitedkingdom_foreground"/>
+    <!--<TextView-->
+    <!--android:id="@+id/text_parametres"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/activityParametre_nomParametre"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:layout_marginTop="25dp"-->
+    <!--android:layout_marginBottom="25dp"-->
+    <!--android:textSize="32dp"/>-->
 
-        <ImageButton
-            android:id="@+id/button_france"
-            android:layout_width="146dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_weight="1"
-            android:text="Button"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:src="@mipmap/france_background"/>
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="2"-->
+    <!--android:orientation="horizontal">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/text_vibreur"-->
+    <!--android:layout_width="438dp"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_weight="2"-->
+    <!--android:text="@string/activityParametre_vibreur"-->
+    <!--android:layout_marginLeft="50dp"-->
+    <!--android:layout_marginTop="45dp"/>-->
+
+    <!--<Switch-->
+    <!--android:id="@+id/switch_vibreur"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_gravity="end"-->
+    <!--android:layout_weight="2"-->
+    <!--android:layout_marginRight="50dp"-->
+    <!--android:theme="@color/colorAccent"-->
+    <!--android:checked="true"/>-->
+
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:layout_weight="2">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/text_notification"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:text="@string/activityParametre_notification"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_weight="2"-->
+    <!--android:layout_marginLeft="50dp"-->
+    <!--android:layout_marginTop="45dp"/>-->
+
+    <!--<Switch-->
+    <!--android:id="@+id/switch_notifications"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_gravity="end"-->
+    <!--android:layout_marginRight="50dp"-->
+    <!--android:layout_weight="2"-->
+    <!--android:checked="false"-->
+    <!--tools:checked="false" />-->
+
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:layout_weight="2">-->
+
+    <!--<ImageButton-->
+    <!--android:id="@+id/button_royaumeUni"-->
+    <!--android:layout_width="149dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="start"-->
+    <!--android:layout_weight="1"-->
+    <!--android:text="Button"-->
+    <!--android:layout_marginLeft="25dp"-->
+    <!--android:layout_marginRight="25dp"-->
+    <!--android:src="@mipmap/unitedkingdom_foreground"/>-->
+
+    <!--<ImageButton-->
+    <!--android:id="@+id/button_france"-->
+    <!--android:layout_width="146dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="end"-->
+    <!--android:layout_weight="1"-->
+    <!--android:text="Button"-->
+    <!--android:layout_marginLeft="25dp"-->
+    <!--android:layout_marginRight="25dp"-->
+    <!--android:src="@mipmap/france_background"/>-->
 
 
-        </LinearLayout>
+    <!--</LinearLayout>-->
 
-    <Button
-        android:id="@+id/button_retour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:layout_marginBottom="35dp"
-        android:layout_marginLeft="40dp"
-        android:text="@string/activityParametre_retour" />
+    <!--<Button-->
+    <!--android:id="@+id/button_retour"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="0"-->
+    <!--android:layout_marginBottom="35dp"-->
+    <!--android:layout_marginLeft="40dp"-->
+    <!--android:text="@string/activityParametre_retour" />-->
 </LinearLayout>
