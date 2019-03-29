@@ -34,7 +34,6 @@ import charldevelopment.melimelo.database.repositories.MotRepository;
 
 public class JeuNormalActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private List<Mot> listeMots;
     private GrilleJeu grille;
     private TextView compteur;
     private HashMap listeMotInsere;
@@ -50,11 +49,10 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
         Button btnValiderMot = (Button) findViewById(R.id.activityJeuNormal_btnValiderMot);
         btnValiderMot.setOnClickListener(this);
 
-        // TODO : mettre en place
-        this.recupererListeMots();
+        List<Mot> listeMotsComplete = this.recupererListeMots();
 
         /*Partie grille de jeu*/
-        this.grille = new GrilleJeu(10);
+        this.grille = new GrilleJeu(10, listeMotsComplete);
 
         TextView textView = (TextView) findViewById(R.id.view_jeu);
         textView.setText(this.grille.toStringActivity());
@@ -123,15 +121,14 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
-    private void recupererListeMots() {
+    private List<Mot> recupererListeMots() {
         MotRepository motRepository = new MotRepository(this.getApplication());
-        this.listeMots = motRepository.obtenirListeMots();
+        List<Mot> listeMots = motRepository.obtenirListeMots();
 
-        if(this.listeMots == null){
-            System.out.println("Liste Nulle");
-        }else{
-            System.out.println(Mot.listerMots(this.listeMots));
-            System.out.println("size : " + this.listeMots.size());
+        if(listeMots == null){
+            throw new NullPointerException("Erreur de la récupération des données");
         }
+
+        return listeMots;
     }
 }
