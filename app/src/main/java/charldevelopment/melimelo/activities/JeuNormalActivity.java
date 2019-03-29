@@ -34,6 +34,10 @@ import charldevelopment.melimelo.database.repositories.MotRepository;
 
 public class JeuNormalActivity extends AppCompatActivity implements View.OnClickListener{
 
+    private String messageInformatif;
+    private String messageReussite;
+    private String messageEchec;
+
     private GrilleJeu grille;
     private TextView compteur;
     private HashMap listeMotInsere;
@@ -46,6 +50,8 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jeu_normal);
 
+        this.initialiserMessagesJeu();
+
         Button btnValiderMot = (Button) findViewById(R.id.activityJeuNormal_btnValiderMot);
         btnValiderMot.setOnClickListener(this);
 
@@ -55,7 +61,7 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
         this.grille = new GrilleJeu(10, listeMotsComplete);
 
         TextView textView = (TextView) findViewById(R.id.view_jeu);
-        textView.setText(this.grille.toStringActivity());
+        textView.setText(this.grille.affichageGrilleJeu());
 
         this.listeMotInsere = this.grille.getListeMot();
 
@@ -77,6 +83,7 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
 
                 Iterator<Map.Entry<String, MotJeu>> iterator2 = this.listeMotInsere.entrySet().iterator();
                 boolean isFound = false;
+
                 while (iterator2.hasNext() && !isFound) {
                     Map.Entry<String, MotJeu> motInsere = iterator2.next();
 
@@ -85,34 +92,24 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
 
                         //jeu
                         this.listeMotInsere.remove(motInsere.getKey());
-                        this.compteur.setText("Mots à trouver : "+listeMotInsere.size());
-                        this.resultat.setText("Bravo !");
+                        this.compteur.setText(this.messageInformatif + listeMotInsere.size());
+                        this.resultat.setText(this.messageReussite);
 
-                        listDeMotTrouve.add(motInsere.getValue().getMot());
+                        this.listDeMotTrouve.add(motInsere.getValue().getMot());
 
                         //maj Grid
                         final List<String> listeMotTrouve = new ArrayList<String>(listDeMotTrouve);
                         final ArrayAdapter<String> gridViewArrayAdapter = new ArrayAdapter<String>
                                 (this,android.R.layout.simple_list_item_1, listeMotTrouve);
-                        motTrouve.setAdapter(gridViewArrayAdapter);
+                        this.motTrouve.setAdapter(gridViewArrayAdapter);
 
                         //vibreur
-                        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                        SharedPreferences prefs = getSharedPreferences("parametres", MODE_PRIVATE);
-                        boolean vibreur = prefs.getBoolean("vibreur",true);//"No name defined" is the default value
-                        if(vibreur){
-                            vibrator.vibrate(100);
-                        }
+                        this.declencherVibreur(100);
                     }
                 }
                 if(!isFound){
-                    this.resultat.setText("Dommage ...");
-                    Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                    SharedPreferences prefs = getSharedPreferences("parametres", MODE_PRIVATE);
-                    boolean vibreur = prefs.getBoolean("vibreur",true);//"No name defined" is the default value
-                    if(vibreur){
-                        vibrator.vibrate(400);
-                    }
+                    this.resultat.setText(this.messageEchec);
+                    this.declencherVibreur(400);
                 }
                 reponse.setText("");
                 InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
@@ -130,5 +127,21 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
         }
 
         return listeMots;
+    }
+
+    private void declencherVibreur(int temps) {
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        SharedPreferences prefs = getSharedPreferences("parametres", MODE_PRIVATE);
+        boolean vibreur = prefs.getBoolean("vibreur", true);//"No name defined" is the default value
+
+        if (vibreur) {
+            vibrator.vibrate(temps);
+        }
+    }
+
+    private void initialiserMessagesJeu() {
+        this.messageInformatif = getResources().getString(R.string.activityJeuNormal_messageInformatif);
+        this.messageReussite = getResources().getString(R.string.activityJeuNormal_messageReussite);
+        this.messageEchec = getResources().getString(R.string.activityJeuNormal_messageEchec);
     }
 }

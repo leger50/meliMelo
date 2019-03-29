@@ -8,6 +8,9 @@
     <string name="activityAccueil_menuRecords">Record</string>
 
     <string name="activityJeuNormal_btnValiderMot">Valider</string>
+    <string name="activityJeuNormal_messageInformatif">"Mots à trouver : "</string>
+    <string name="activityJeuNormal_messageReussite">Bravo !</string>
+    <string name="activityJeuNormal_messageEchec">Dommage</string>
 
     <string name="activityParametre_nomParametre">Paramètres</string>
     <string name="activityParametre_general">Général</string>

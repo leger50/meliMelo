@@ -24,30 +24,59 @@ public class GrilleJeu {
         this.grille = new String[this.tailleJeu][this.tailleJeu];
         this.listeMot= new HashMap<>();
 
+        this.initialiserGrille();
+        this.recupererMotsAleatoires(listeMotsComplet, this.nbMots);
+        this.remplirVide();
+    }
+
+    private void initialiserGrille() {
         for (int i = 0; i < this.tailleJeu; i++) {
             for (int j = 0; j < this.tailleJeu; j++) {
                 this.grille[i][j] = this.MARQUE_VIDE;
             }
 
         }
+    }
 
-        this.recupererMotsAleatoires(listeMotsComplet, this.nbMots);
-        this.remplirVide();
+    private void remplirVide(){
+        Random rand = new Random();
 
-        //this.toString();
+        for (int i = 0; i < this.tailleJeu; i++){
+            for(int j = 0; j <this.tailleJeu; j++){
+                if (this.grille[i][j].equals(this.MARQUE_VIDE)){
+                    this.grille[i][j]=this.ALPHABET[rand.nextInt(26)];
+                }
+            }
+        }
+    }
+
+    public String affichageGrilleJeu(){
+
+        StringBuilder retour = new StringBuilder();
+
+        for (int i = 0; i < this.tailleJeu; i++){
+            for (int j = 0; j < this.tailleJeu; j++){
+                retour.append("   ");
+                retour.append(this.grille[i][j]);
+                retour.append("   ");
+            }
+            retour.append("\n");
+        }
+
+        return retour.toString();
     }
 
     public String toString(){
 
-        String retour = "";
+        StringBuilder retour = new StringBuilder();
 
         for (int i = 0; i < this.tailleJeu; i++){
             for (int j = 0; j < this.tailleJeu; j++){
-                retour += this.grille[i][j];
+                retour.append(this.grille[i][j]);
             }
         }
 
-        return retour;
+        return retour.toString();
     }
 
     private void recupererMotsAleatoires(List<Mot> listeComplete, int nbMotsAtrouver){
@@ -65,35 +94,17 @@ public class GrilleJeu {
         }
     }
 
-    public String toStringActivity(){
-
-        String retour = "";
-
-        for (int i = 0; i < this.tailleJeu; i++){
-            for (int j = 0; j < this.tailleJeu; j++){
-                retour+= "   ";
-                retour += this.grille[i][j];
-                retour += "   ";
-            }
-            retour += "\n";
-        }
-
-        return retour;
-    }
-
-    public void insererMot (String mot){
+    private void insererMot (String mot){
         Random rand = new Random();
 
         int choixMethode = rand.nextInt(this.NB_METHODES);
 
         switch (choixMethode){
             case 0 : insererMotLigne(mot);
-            break;
+                break;
             case 1 : insererMotColonne(mot);
-            break;
+                break;
         }
-
-
     }
 
     private boolean insererMotLigne(String mot) {
@@ -176,18 +187,6 @@ public class GrilleJeu {
         int id = this.listeMot.size();
         this.listeMot.put(id,new MotJeu(id,mot,ligne,colonne,mot.length(),false));
         return true;
-    }
-
-    public void remplirVide(){
-        Random rand = new Random();
-
-        for (int i = 0; i < this.tailleJeu; i++){
-            for(int j = 0; j <this.tailleJeu; j++){
-                if (this.grille[i][j].equals(this.MARQUE_VIDE)){
-                    this.grille[i][j]=this.ALPHABET[rand.nextInt(26)];
-                }
-            }
-        }
     }
 
     public HashMap getListeMot(){
