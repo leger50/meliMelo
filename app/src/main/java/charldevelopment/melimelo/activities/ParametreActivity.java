@@ -25,18 +25,22 @@ public class ParametreActivity extends AppCompatActivity implements View.OnClick
 
         Button retour = (Button) findViewById(R.id.button_retour);
         Switch switch_vibreur = (Switch) findViewById(R.id.switch_vibreur);
+        Switch switch_son = (Switch) findViewById(R.id.switch_son);
         Switch switch_notifications = (Switch) findViewById(R.id.switch_notifications);
 
         SharedPreferences prefs = getSharedPreferences("parametres", MODE_PRIVATE);
-        boolean vibreur = prefs.getBoolean("vibreur",true);//"No name defined" is the default value
+        boolean vibreur = prefs.getBoolean("vibreur",true);
+        boolean son = prefs.getBoolean("son",true);
         boolean notifications = prefs.getBoolean("notifications",true);
 
         switch_vibreur.setChecked(vibreur);
+        switch_son.setChecked(son);
         switch_notifications.setChecked(notifications);
 
         retour.setOnClickListener(this);
-        switch_notifications.setOnClickListener(this);
         switch_vibreur.setOnClickListener(this);
+        switch_son.setOnClickListener(this);
+        switch_notifications.setOnClickListener(this);
 
         //Paramètre des langues
         this.switch_langueFrancais = (Switch) findViewById(R.id.switch_french);
@@ -65,6 +69,12 @@ public class ParametreActivity extends AppCompatActivity implements View.OnClick
                 if(!vibreur){
                     vibrator.vibrate(100);
                 }
+                break;
+
+            case R.id.switch_son :
+                boolean son = prefs.getBoolean("son",true);//"No name defined" is the default value
+                editor.putBoolean("son", !son);
+                editor.apply();
                 break;
 
             case R.id.switch_notifications :
