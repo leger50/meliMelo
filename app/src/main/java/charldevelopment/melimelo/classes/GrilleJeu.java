@@ -10,7 +10,7 @@ public class GrilleJeu {
     private static final int NBMETHODE = 2;
     private static final String[] ALPHABET = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
     private static final String MARQUE_VIDE = ".";
-    private HashMap<Integer, Mot> listeMot;
+    private HashMap<Integer, MotJeu> listeMot;
     private final int NBMOT = 10;
 
     public GrilleJeu(int TAILLE) {
@@ -120,7 +120,7 @@ public class GrilleJeu {
         }
 
         int id = this.listeMot.size();
-        this.listeMot.put(id,new charldevelopment.melimelo.classes.Mot(id,mot,ligne,colonne,mot.length(),false));
+        this.listeMot.put(id,new MotJeu(id,mot,ligne,colonne,mot.length(),false));
         return true;
     }
 
@@ -161,7 +161,7 @@ public class GrilleJeu {
         }
 
         int id = this.listeMot.size();
-        this.listeMot.put(id,new charldevelopment.melimelo.classes.Mot(id,mot,ligne,colonne,mot.length(),false));
+        this.listeMot.put(id,new MotJeu(id,mot,ligne,colonne,mot.length(),false));
         return true;
     }
 

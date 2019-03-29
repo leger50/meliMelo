@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Toast;
 import android.widget.EditText;
 import android.widget.GridView;
 
@@ -29,6 +28,7 @@ import java.util.Map;
 
 import charldevelopment.melimelo.R;
 import charldevelopment.melimelo.classes.GrilleJeu;
+import charldevelopment.melimelo.classes.MotJeu;
 import charldevelopment.melimelo.database.models.Mot;
 import charldevelopment.melimelo.database.repositories.MotRepository;
 
@@ -53,20 +53,34 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
         // TODO : mettre en place
         this.recupererListeMots();
 
+        /*Partie grille de jeu*/
+        this.grille = new GrilleJeu(10);
+
+        TextView textView = (TextView) findViewById(R.id.view_jeu);
+        textView.setText(this.grille.toStringActivity());
+
+        this.listeMotInsere = this.grille.getListeMot();
+
+        this.compteur = (TextView) findViewById(R.id.view_compteur);
+        this.compteur.setText("Mots à trouver : "+listeMotInsere.size());
+
+        this.resultat = (TextView) findViewById(R.id.view_resultat);
+        this.motTrouve = (GridView) findViewById(R.id.word_find);
+
     }
 
     @Override
     public void onClick(View v){
 
         switch (v.getId()){
-            case R.id.btn_play:
+            case R.id.activityJeuNormal_btnValiderMot:
                 EditText reponse = (EditText) findViewById(R.id.saisieMot);
                 String mot = reponse.getText().toString();
 
-                Iterator<Map.Entry<String, charldevelopment.melimelo.classes.Mot>> iterator2 = this.listeMotInsere.entrySet().iterator();
+                Iterator<Map.Entry<String, MotJeu>> iterator2 = this.listeMotInsere.entrySet().iterator();
                 boolean isFound = false;
                 while (iterator2.hasNext() && !isFound) {
-                    Map.Entry<String, charldevelopment.melimelo.classes.Mot> motInsere = (Map.Entry<String, charldevelopment.melimelo.classes.Mot>) iterator2.next();
+                    Map.Entry<String, MotJeu> motInsere = iterator2.next();
 
                     if(motInsere.getValue().getMot().equals(mot)){
                         isFound = true;

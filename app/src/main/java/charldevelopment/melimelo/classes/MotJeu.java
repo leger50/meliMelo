@@ -1,6 +1,6 @@
 package charldevelopment.melimelo.classes;
 
-public class Mot {
+public class MotJeu {
 
     private int id;
     private String mot;
@@ -9,7 +9,7 @@ public class Mot {
     private int longeur;
     private boolean isligne;
 
-    public Mot(int id, String mot, int ligne, int colonne, int longeur,boolean isLigne) {
+    public MotJeu(int id, String mot, int ligne, int colonne, int longeur, boolean isLigne) {
         this.id = id;
         this.mot = mot;
         this.ligne = ligne;

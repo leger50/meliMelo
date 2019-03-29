@@ -38,7 +38,7 @@ public class Mot {
 
     @Override
     public String toString() {
-        final StringBuilder chaine = new StringBuilder("Mot{");
+        final StringBuilder chaine = new StringBuilder("MotJeu{");
         chaine.append("id=").append(id);
         chaine.append(", texte='").append(texte).append('\'');
         chaine.append('}');
