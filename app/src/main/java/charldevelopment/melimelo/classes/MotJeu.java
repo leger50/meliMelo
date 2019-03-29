@@ -6,16 +6,16 @@ public class MotJeu {
     private String mot;
     private int ligne;
     private int colonne;
-    private int longeur;
-    private boolean isligne;
+    private int longueur;
+    private boolean estLigne;
 
-    public MotJeu(int id, String mot, int ligne, int colonne, int longeur, boolean isLigne) {
+    public MotJeu(int id, String mot, int ligne, int colonne, int longueur, boolean estLigne) {
         this.id = id;
         this.mot = mot;
         this.ligne = ligne;
         this.colonne = colonne;
-        this.longeur = longeur;
-        this.isligne = isLigne;
+        this.longueur = longueur;
+        this.estLigne = estLigne;
     }
 
     public int getId(){
@@ -34,11 +34,11 @@ public class MotJeu {
         return this.colonne;
     }
 
-    public int getLongeur() {
-        return this.longeur;
+    public int getLongueur() {
+        return this.longueur;
     }
 
-    public boolean getIsLigne(){
-        return isligne;
+    public boolean estLigne(){
+        return estLigne;
     }
 }

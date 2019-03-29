@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -72,13 +71,13 @@ public class ParametreActivity extends AppCompatActivity implements View.OnClick
                 break;
 
             case R.id.switch_son :
-                boolean son = prefs.getBoolean("son",true);//"No name defined" is the default value
+                boolean son = prefs.getBoolean("son",true);
                 editor.putBoolean("son", !son);
                 editor.apply();
                 break;
 
             case R.id.switch_notifications :
-                boolean notifications = prefs.getBoolean("notifications",true);//"No name defined" is the default value
+                boolean notifications = prefs.getBoolean("notifications",true);
                 editor.putBoolean("notifications", !notifications);
                 editor.apply();
                 break;
