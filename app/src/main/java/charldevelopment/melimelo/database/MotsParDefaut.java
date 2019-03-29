@@ -1,8 +1,5 @@
 package charldevelopment.melimelo.database;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import charldevelopment.melimelo.database.models.Mot;
 
 public class MotsParDefaut {
@@ -21,4 +18,6 @@ public class MotsParDefaut {
             "insecte", "jardin", "mare", "marguerite", "miel", "mouche", "mouton", "oie", "oiseau", "pierre",
             "pigeon", "plante", "plume", "poney","poussin", "prairie", "rat", "route", "tortue", "tracteur",
     };
+
+    public static final Mot creationBD = new Mot(10000,"creation");
 }

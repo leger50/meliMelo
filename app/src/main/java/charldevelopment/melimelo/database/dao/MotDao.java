@@ -19,6 +19,9 @@ public interface MotDao {
     public List<Mot> obtenirListeMots();
 
     @Insert
+    public void insererListeMots(List<Mot> mots);
+
+    @Insert
     public void insererUnMot(Mot mot);
 
     @Delete

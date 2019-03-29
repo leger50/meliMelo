@@ -1,7 +1,7 @@
 package charldevelopment.melimelo.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -26,11 +26,9 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
         Button btnValiderMot = (Button) findViewById(R.id.activityJeuNormal_btnValiderMot);
         btnValiderMot.setOnClickListener(this);
 
-        /*MotViewModel motView = new MotViewModel(this.getApplication());
-        this.listeMots = motView.obtenirListeMots().getValue();
-        System.out.println(this.listeMots.toString());
-        System.out.println("Size : " + this.listeMots.size());
-        this.grille = new GrilleJeu();*/
+        // TODO : mettre en place
+        this.recupererListeMots();
+
 
     }
 
@@ -42,22 +40,22 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
             case R.id.activityJeuNormal_btnValiderMot:
                 Toast.makeText(getApplicationContext(), "bouton", Toast.LENGTH_SHORT).show();
 
-                //A supprimer
-
-                MotRepository motView = new MotRepository(this.getApplication());
-                this.listeMots = motView.obtenirListeMots();
-
-                if(this.listeMots == null){
-                    System.out.println("Liste Nulle");
-                }else{
-                    //System.out.println(this.listeMots.toString());
-                    System.out.println("size : " + this.listeMots.size());
-                }
-
                 break;
 
             default:
                 break;
+        }
+    }
+
+    private void recupererListeMots() {
+        MotRepository motRepository = new MotRepository(this.getApplication());
+        this.listeMots = motRepository.obtenirListeMots();
+
+        if(this.listeMots == null){
+            System.out.println("Liste Nulle");
+        }else{
+            System.out.println(Mot.listerMots(this.listeMots));
+            System.out.println("size : " + this.listeMots.size());
         }
     }
 }

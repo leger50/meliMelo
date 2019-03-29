@@ -1,14 +1,11 @@
 package charldevelopment.melimelo.database.repositories;
 
 import android.app.Application;
-import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import charldevelopment.melimelo.database.MeliMeloDatabase;
-import charldevelopment.melimelo.database.MotsParDefaut;
 import charldevelopment.melimelo.database.dao.MotDao;
 import charldevelopment.melimelo.database.models.Mot;
 
@@ -25,21 +22,13 @@ public class MotRepository {
         return this.motDao.obtenirListeMots();
     }
 
-    public void insert(Mot mot) {
+    public void insererUnMot(Mot mot) {
         new insertAsyncTask(this.motDao).execute(mot);
     }
 
-    public void initDatabase(){
-        String listeMots[] = MotsParDefaut.listeMotsDefaut;
-
-        for(int i=0; i<listeMots.length; i++){
-            this.insert(new Mot(i,listeMots[i]));
-        }
-    }
-
-    /*
-    * Méthode insertion doit être appeler dans un thread autre que le main,
-    * nous définissons donc notre tache d'insertion en mode asynchrone.
+    /**
+     * Méthode d'insertion : doit être appelée dans un thread autre que le main,
+     * nous définissons donc notre tache d'insertion en mode asynchrone.
      */
     private static class insertAsyncTask extends AsyncTask<Mot, Void, Void> {
 
