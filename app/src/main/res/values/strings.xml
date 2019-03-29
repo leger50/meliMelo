@@ -10,8 +10,12 @@
     <string name="activityJeuNormal_btnValiderMot">Valider</string>
 
     <string name="activityParametre_nomParametre">Paramètres</string>
+    <string name="activityParametre_general">Général</string>
+    <string name="activityParametre_langue">Langues</string>
     <string name="activityParametre_vibreur">Vibreur</string>
     <string name="activityParametre_sound">sound</string>
     <string name="activityParametre_notification">Notifications</string>
+    <string name="activityParametre_english">Version anglaise</string>
+    <string name="activityParametre_french">Version française</string>
     <string name="activityParametre_retour">Retour</string>
 </resources>
