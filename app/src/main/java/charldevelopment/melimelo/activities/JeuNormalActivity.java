@@ -7,8 +7,6 @@ import android.content.SharedPreferences;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.os.Bundle;
-import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -110,8 +108,7 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
                break;
         }
     }
-            case R.id.activityJeuNormal_btnValiderMot:
-                Toast.makeText(getApplicationContext(), "bouton", Toast.LENGTH_SHORT).show();
+
     private void recupererListeMots() {
         MotRepository motRepository = new MotRepository(this.getApplication());
         this.listeMots = motRepository.obtenirListeMots();
