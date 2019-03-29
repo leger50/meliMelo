@@ -95,27 +95,40 @@ public class JeuNormalActivity extends AppCompatActivity implements View.OnClick
                         this.compteur.setText(this.messageInformatif + listeMotInsere.size());
                         this.resultat.setText(this.messageReussite);
 
-                        this.listDeMotTrouve.add(motInsere.getValue().getMot());
-
-                        //maj Grid
-                        final List<String> listeMotTrouve = new ArrayList<String>(listDeMotTrouve);
-                        final ArrayAdapter<String> gridViewArrayAdapter = new ArrayAdapter<String>
-                                (this,android.R.layout.simple_list_item_1, listeMotTrouve);
-                        this.motTrouve.setAdapter(gridViewArrayAdapter);
+                        //mise à jour GridView
+                        updateGridView(motInsere);
 
                         //vibreur
                         this.declencherVibreur(100);
                     }
                 }
+                //en cas d'échec
                 if(!isFound){
                     this.resultat.setText(this.messageEchec);
                     this.declencherVibreur(400);
                 }
+                //vider champ de saisie
                 reponse.setText("");
-                InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-                imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
-               break;
+
+                //enlever le clavier
+                removeKeyboard();
+                break;
         }
+    }
+
+    private void removeKeyboard() {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+    }
+
+    private void updateGridView(Map.Entry<String, MotJeu> motInsere) {
+        this.listDeMotTrouve.add(motInsere.getValue().getMot());
+
+        //maj Grid
+        final List<String> listeMotTrouve = new ArrayList<String>(listDeMotTrouve);
+        final ArrayAdapter<String> gridViewArrayAdapter = new ArrayAdapter<String>
+                (this,android.R.layout.simple_list_item_1, listeMotTrouve);
+        this.motTrouve.setAdapter(gridViewArrayAdapter);
     }
 
     private List<Mot> recupererListeMots() {
